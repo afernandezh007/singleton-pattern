@@ -14,9 +14,11 @@ public class TaxCalculator {
     //==================================================================================
     //-------------------------------- SINGLETON PATTERN -------------------------------
     //==================================================================================
-    //eager instantiation
-    private static TaxCalculator instance = new TaxCalculator();
 
+    //Bill Pugh's solution with helper
+    private static class SingletonHelper{
+        private static final TaxCalculator instance = new TaxCalculator();
+    }
     /**
      * Private constructor to avoid external instantiation
      */
@@ -40,6 +42,7 @@ public class TaxCalculator {
      * @return
      */
     public static TaxCalculator getInstance() {
+        TaxCalculator instance = SingletonHelper.instance;
         log.info(" Return existing instance " + instance);
         Utils.showMemory();
         return instance;
