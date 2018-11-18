@@ -12,7 +12,11 @@ public class TaxCalculator {
     //==================================================================================
     //-------------------------------- SINGLETON PATTERN -------------------------------
     //==================================================================================
-    private static TaxCalculator instance = new TaxCalculator(); // Eager initialization
+
+    //static inner class. This class is not loaded until you call it
+    private static class SingletonHelper{
+        private static TaxCalculator instance = new TaxCalculator();
+    }
 
     /**
      * Private constructor to avoid external instantiation
@@ -27,6 +31,7 @@ public class TaxCalculator {
      * @return
      */
     public static TaxCalculator getInstance() {
+        TaxCalculator instance = SingletonHelper.instance;
         log.info(" Return existing instance " + instance);
         return instance;
     }
