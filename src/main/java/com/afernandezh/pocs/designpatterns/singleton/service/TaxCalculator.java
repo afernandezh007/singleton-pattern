@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TaxCalculator {
 
+    private Double[][] data = new Double[1000][1000];
 
     //==================================================================================
     //-------------------------------- SINGLETON PATTERN -------------------------------
@@ -19,6 +20,16 @@ public class TaxCalculator {
      */
     private TaxCalculator() {
         log.info(" Private constructor invoked");
+        try {
+            Thread.sleep(1000);
+            log.info(" Subsystem 1 init finished");
+            Thread.sleep(2500);
+            log.info(" Subsystem 2 init finished");
+            Thread.sleep(3000);
+            log.info(" Subsystem 3 init finished");
+        } catch (InterruptedException e) {
+            log.error("Exception :", e);
+        }
     }
 
     /**
