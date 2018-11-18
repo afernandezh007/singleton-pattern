@@ -1,5 +1,6 @@
 package com.afernandezh.pocs.designpatterns.singleton.service;
 
+import com.afernandezh.pocs.designpatterns.singleton.Utils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -46,6 +47,7 @@ public class TaxCalculator {
         } else {
             log.info(" Return existing instance " + instance);
         }
+        Utils.showMemory();
         return instance;
     }
     //==================================================================================
